@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kim &#9829; Kevin</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Select2 https://select2.org/ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
+    <!-- Custom fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Birthstone&family=Birthstone+Bounce:wght@400;500&family=Noto+Sans+JP:wght@300&family=Puppies+Play&display=swap"
+        rel="stylesheet">
+
+<body>
+    <!-- Overlay popups -->
+    <div id="overlay" class="transition">
+        <a class="close"></a>
+    </div>
+    <section id="music" class="transition" hidden>
+        <h2>&#9835; SONG REQUESTS &#9835;</h2>
+        <p>Would you like to put in a song request<br> to our DJ? Send the song name and<br> artist here!</p>
+        <p style="font-size: 13px;"><b id="song-status">You can submit up to 10 songs.</b></p>
+        <input type="text" maxlength="100" id="song-name"><br><br>
+        <button id="submit-song">Submit</button>
+    </section>
+    <div id="popup">
+        <div class="envelope">
+            <div class="flap front"></div>
+            <div class="flap etop"></div>
+            <div class="letter"></div>
+            <div class="envelope-content">
+                <h1 class="puppies topname">Kevin</h1>
+                <h2 class="puppies">+</h2>
+                <h1 class="puppies small-margin">Kim</h1>
+                <p class="no-margin">JOYFULLY INVITE YOU TO</p>
+                <p class="no-margin">CELEBRATE THEIR MARRIAGE</p>
+                <p><a href="#details-section" class="view-more">VIEW DETAILS</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top navbar -->
+    <div class="navbar" id="navbar">
+        <header id="header">
+            <h3>Kim &#9829; Kevin</h3>
+            <a class="music-nav-button">&#9835;</a>
+            <a href="#rsvp-section" class="rsvp-nav-button">RSVP</a>
+        </header>
+    </div>
+
+    <!-- Content -->
+    <section class="top"></section>
+
+    <section>
+        <a class="anchor" id="details-section"></a>
+        <br>
+        <h2>DETAILS</h2>
+        <p>
+            Together with their families, Kim &amp; Kevin request the pleasure of your company to celebrate their union.
+            Please join us for a day filled with love, laughter, and joy as we unite in marriage and celebrate this
+            journey together.
+        </p>
+        <hr>
+        <p>
+            Ceremony<br>
+            <b>07 September 2024 at 15:15</b><br>
+            <b id="loc_1">Stellenbosch</b><br><br>
+            Reception to follow at<br>
+            <b id="loc_2">Checking rsvp token...</b><br><br>
+            Dress code<br>
+            <b>Formal</b>
+        </p>
+        <hr>
+    </section>
+
+    <section class="gallery">
+        <div class="container">
+            <img class="nomobile" src="assets/gallery_0.jpg">
+            <img class="nomobile" src="assets/gallery_1.jpg">
+            <img src="assets/gallery_2.jpg">
+            <img src="assets/gallery_3.jpg">
+            <img src="assets/gallery_4.jpg">
+            <img src="assets/gallery_5.jpg">
+            <img class="nomobile" src="assets/gallery_6.jpg">
+            <img src="assets/gallery_7.jpg">
+            <img src="assets/gallery_8.jpg">
+        </div>
+    </section>
+    <section>
+        <h2>LOOKING TO STAY NEARBY?</h2>
+        <p>
+            We've included some options for staying nearby the venue.
+        </p>
+        <div class="accomodation">
+            <img src="https://mooiplaas.co.za/wp-content/uploads/2016/03/house.jpg">
+            <div>
+                <h3>Mooiplaas</h3>
+                Mooiplaas Wine Estate and Private Nature Reserve<br>
+                <a href="https://maps.app.goo.gl/1hPE2Z2N64dy53Je7" target="_blank">Bottelary Road, M23</a>
+            </div>
+        </div>
+        <div class="accomodation">
+            <img
+                src="https://lh3.googleusercontent.com/gps-proxy/ALd4DhGXKqI26Mp7gBHKACCeR1L16rKu0dWUue1oICXiVBKfg61Voypp7JHwP9FoodzPZAqSWRInqB2BKIfjFTwr6LodAiGDQwRrVSZ1dVBBAK3J_8M5CBVGJ3WBJWjl1xEvvP6DUWdz0uZZmpqUt51g-LhI4Z1O9IydISaH8hGZ_fVh_xLTzqLibH23=w427-h240-k-no">
+            <div>
+                <h3>Hazendal Hotel & Spa</h3>
+                Mooiplaas Wine Estate and Private Nature Reserve<br>
+                <a href="https://maps.app.goo.gl/ZAu68XJgNY7D3Q3W6" target="_blank">Bottelary Road, M23</a>
+            </div>
+        </div>
+        <p>
+            <b style="font-size: 12px;">
+                Note: we cannot guarantee availability at any of these places.
+            </b>
+        </p>
+    </section>
+
+    <section id="map"></section>
+
+    <section class="mid"></section>
+
+    <section class="menu-section">
+        <h1>THE MENU</h1>
+        <p>
+            We're both foodies, so we made sure to organise a banger menu.<br><br>
+            Two options are provided for the main courses:
+            <b>Beef Fillet and Rack of Lamb Duo</b> or <b>Tuscan Chicken</b>.
+            For Vegetarians, we have a lasagne style <b>Vegetable Bake</b>.
+        </p>
+        <p>
+            <b style="font-size: 12px; line-height: 0%;">
+                Please contact us if you have any allergies or other dietary requirements.
+            </b>
+        </p>
+        <hr>
+        <h2>Entr&#233e</h2>
+        <div class="menu-item">
+            <h3>Trio of starters</h3>
+            Prawn Spring Rolls, Deep Fried Bobotie Truffle, Pulled Brisket and Rustic Pineapple Slaw Taco
+        </div>
+        <div class="menu-item">
+            <h3>Trio of starters <span class="green">(V)</span></h3>
+            Vegetarian Spring Rolls, Mushroom Arancini, Vegetable and Rustic Pineapple Slaw Taco
+        </div>
+        <h2>Mains</h2>
+        <div class="menu-item">
+            <h3>Beef Fillet and Rack of Lamb Duo</h3>
+            Chargrilled Shallots, Crumbed Feta, Sauteed Baby Carrot, Tenderstem, Beetroot Puree and Celeriac Mash Potato
+        </div>
+        <div class="menu-item">
+            <h3>Tuscan Chicken</h3>
+            Stuffed with Mozarella, Sundried Tomato, Basil Leaves, Fondant Potato, Romesco Sauce and Caprese Arancini
+        </div>
+        <div class="menu-item">
+            <h3>Vegetable Bake <span class="green">(V)</span></h3>
+            Lasagne Style Vegetable Bake with Pesto, and Red Pepper Pesto
+        </div>
+        <hr><br><br>
+    </section>
+
+    <section>
+        <a class="anchor" id="rsvp-section"></a>
+        <div id="rsvp" class="rsvp-container" hidden>
+            <form id="rsvp-form" class="rsvp-form">
+                <span id="rsvp-error" hidden></span>
+                <h2>RSVP</h2>
+                <p>Dear <b id="rsvp-guest-names">???</b>, we would love to have you at our wedding!</p>
+                <div class="attend-options">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="attend-yes" name="attend-option" hidden
+                            onchange="checkChanged(this)"></input>
+                        <label for="attend-yes" class="custom-checkbox"></label>
+                        <span class="custom-checkbox-label"><span name="attend-pron">I</span>'ll be there!</span>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="attend-no" name="attend-option" hidden
+                            onchange="checkChanged(this)"></input>
+                        <label for="attend-no" class="custom-checkbox"></label>
+                        <span class="custom-checkbox-label"><span name="attend-pron">I</span> can't make it</span>
+                    </div>
+                </div>
+                <div id="normal-attend" hidden>
+                    <p>Please choose your preferred entr&#233e and main course.</p>
+                </div>
+                <div id="multi-attend" hidden>
+                    <p>Please indicate who is attending and their menu selection.</p>
+                    <div class="guest-list" style="display: none;">
+                        <div id="guest-names" class="guest-column">
+                            <b>Guest</b>
+                        </div>
+                        <div id="guest-attending" class="guest-column">
+                            <b>Attending</b>
+                        </div>
+                        <div id="guest-dietary" class="guest-column-wide">
+                            <b class="header-diet">Dietary</b>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="submit" disabled="true">Submit</button>
+            </form>
+        </div>
+        <div class="bottom"></div>
+    </section>
+
+    <footer>
+        <h3>Made by Kevin &amp; Kim &#9829;</h3>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
