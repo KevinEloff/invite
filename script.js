@@ -4,7 +4,6 @@ document.getElementById('rsvp-form').addEventListener('submit', function (e) {
     e.preventDefault();
     displayErrorMessage('Saving response...', '#432616');
     const submitButton = document.getElementById("submit");
-    submitButton.textContent = "Submitting...";
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -68,6 +67,8 @@ document.getElementById('rsvp-form').addEventListener('submit', function (e) {
         starter: starters.join(', ').toLowerCase(),
         mains: mains.join(', ').toLowerCase(),
     };
+    
+    submitButton.textContent = "Submitting...";
 
     // Making a POST request with the form data
     fetch(app_url, {
@@ -603,6 +604,7 @@ function openMusic() {
 }
 
 function openInvitation() {
+    $('.envelope-title').css('opacity', 0)
     $('.envelope').addClass('open');
     $('#overlay').click(null)
     setTimeout(function () {
@@ -610,7 +612,7 @@ function openInvitation() {
         $('.envelope-content span').addClass('show-content');
         setTimeout(function () {
             $('.view-more').addClass('show-content')
-        }, n * 70);
+        }, n * 50);
     }, 4750);
 }
 

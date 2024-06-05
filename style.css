@@ -1,3 +1,7 @@
+:root {
+    color-scheme: only light !important;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -27,7 +31,7 @@ body {
     /* opacity: 0.5; */
     color: white;
     background-color: rgba(0, 0, 0, 0.4);
-    z-index: 10;
+    z-index: 1001;
     transition: all 300ms ease-in-out;
 }
 
@@ -68,14 +72,16 @@ header h3 {
 
 .music-nav-button {
     position: absolute;
-    right: 85px;
-    top: -18px;
-    font-size: 35px;
+    right: 75px;
+    /* top: -18px; */
+    /* font-size: 35px; */
+    top: -4px;
     color: white;
     text-decoration: none;
     padding: 8px;
     transition: 0.2s ease;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .music-nav-button:hover {
@@ -577,7 +583,7 @@ input[type="checkbox"]:disabled+.custom-checkbox-nocover::after {
     height: 100%;
     background: rgb(0, 0, 0);
     opacity: 0.7;
-    z-index: 1001;
+    z-index: 1002;
 }
 
 #popup {
@@ -586,7 +592,7 @@ input[type="checkbox"]:disabled+.custom-checkbox-nocover::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1002;
+    z-index: 1003;
 }
 
 #music {
@@ -595,12 +601,12 @@ input[type="checkbox"]:disabled+.custom-checkbox-nocover::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1002;
+    z-index: 1003;
     opacity: 0;
-    max-width: 300px;
+    max-width: 290px;
     background-color: #F6F2E6;
     border-radius: 15px;
-    padding: 15px;
+    padding: 20px;
 }
 
 #music input[type="text"] {
@@ -712,6 +718,17 @@ input[type="checkbox"]:disabled+.custom-checkbox-nocover::after {
     box-sizing: border-box;
 }
 
+.envelope-title {
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    top:-40px;
+    width: 100%;
+    text-align: center;
+    color: #D6C9A4;
+    letter-spacing: 1px;
+}
+
 .envelope {
     width: 200px;
     height: 100px;
@@ -729,7 +746,7 @@ input[type="checkbox"]:disabled+.custom-checkbox-nocover::after {
     transform: translate(-50%, -50%);
     zoom: 2;
     -moz-transform: scale(2) translate(-25%, -25%);
-    z-index: 1001;
+    z-index: 1002;
 }
 
 .envelope:after {
@@ -1247,7 +1264,7 @@ section h2 {
     width: 100%;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 500px) {
     .top {
         min-height: 600px;
     }
@@ -1298,6 +1315,10 @@ section h2 {
 
     #map {
         height: 300px;
+    }
+
+    #music {
+        width: 90%;
     }
 }
 
