@@ -1247,7 +1247,7 @@ section h2 {
     width: 100%;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 460px) {
     .top {
         min-height: 600px;
     }
