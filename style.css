@@ -54,7 +54,7 @@ header h3 {
 .rsvp-nav-button {
     position: absolute;
     right: 10px;
-    top: -5px;
+    top: -6px;
     color: white;
     text-decoration: none;
     padding: 8px;
@@ -75,7 +75,7 @@ header h3 {
     right: 75px;
     /* top: -18px; */
     /* font-size: 35px; */
-    top: -4px;
+    top: -5px;
     color: white;
     text-decoration: none;
     padding: 8px;
@@ -191,7 +191,7 @@ section hr {
     width: 400px;
     height: 560px;
     /* Background image */
-    background: url('assets/background.png') no-repeat center center;
+    background: url('assets/background-low.png') no-repeat center center;
     background-size: contain;
     position: relative;
     /* Shadow border */
@@ -248,6 +248,10 @@ section hr {
 .attend-options {
     display: flex;
     margin-left: 20px;
+}
+
+.checkbox-container {
+    white-space: nowrap;
 }
 
 /* Attendee details */
@@ -317,6 +321,7 @@ section hr {
     position: relative;
     flex-basis: 50%;
     text-align: left;
+    white-space: nowrap;
 }
 
 .sub-menu b {
@@ -722,7 +727,7 @@ input[type="checkbox"]:disabled+.custom-checkbox-nocover::after {
     font-size: 10px;
     font-weight: bold;
     position: absolute;
-    top:-40px;
+    top: -40px;
     width: 100%;
     text-align: center;
     color: #D6C9A4;
@@ -1107,12 +1112,12 @@ input[type="checkbox"]:disabled+.custom-checkbox-nocover::after {
         left: -1.5px
     }
 
-    .envelope-content p {
-        font-size: xx-small;
+    .envelope-content h1 {
+        font-size: 36px;
     }
 
-    .envelope-content a {
-        bottom: -10px;
+    b {
+        font-weight: bold;
     }
 }
 
@@ -1251,12 +1256,14 @@ section h2 {
     bottom: 0px;
     left: 0px;
     /* color: #411900; */
-    color: #0078A8;
+    /* color: #0078A8; */
+    color: black;
     text-decoration: none;
 }
 
 .map-label a:hover {
-    text-decoration: underline;
+    color: #0078A8;
+    /* text-decoration: underline; */
 }
 
 #map {
@@ -1266,11 +1273,18 @@ section h2 {
 
 @media (max-width: 500px) {
     .top {
-        min-height: 600px;
+        min-height: 500px;
+        background: url('assets/top-low.jpg') center center;
     }
 
     .mid {
         min-height: 300px;
+        background: url('assets/mid-low.jpg') center center;
+    }
+
+    .bottom {
+        min-height: 650px;
+        background: url('assets/bottom-low.jpg') center center;
     }
 
     .envelope {
@@ -1319,6 +1333,39 @@ section h2 {
 
     #music {
         width: 90%;
+    }
+
+    /* Disable hovers in mobile */
+    .rsvp-nav-button:hover {
+        color: white;
+        border: 1px solid white;
+    }
+
+    .rsvp-nav-button:active {
+        color: rgb(57, 179, 255);
+        border: 1px solid rgb(57, 179, 255);
+    }
+
+    .music-nav-button:hover {
+        color: white;
+    }
+
+    .music-nav-button:active {
+        color: rgb(57, 179, 255);
+    }
+
+    .map-label a:hover {
+        color: black;
+    }
+
+    .map-label a:active {
+        color: #0078A8;
+    }
+}
+
+@media (max-width: 380px) {
+    .nav-song {
+        display: none;
     }
 }
 

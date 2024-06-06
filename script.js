@@ -21,9 +21,9 @@ document.getElementById('rsvp-form').addEventListener('submit', function (e) {
 
     var isAttending = document.getElementById("attend-yes").checked;
     document.getElementsByName("attend-guest").forEach((element, i) => {
-        attending.push(element.checked)
+        attending.push(isAttending ? element.checked : false);
         var menu = getMenuItems(i);
-        if (!menu & element.checked) {
+        if (!menu & element.checked & isAttending) {
             // No menu option selected
             displayErrorMessage("Please fill in the menu selection for those attending!")
             return
@@ -67,7 +67,7 @@ document.getElementById('rsvp-form').addEventListener('submit', function (e) {
         starter: starters.join(', ').toLowerCase(),
         mains: mains.join(', ').toLowerCase(),
     };
-    
+
     submitButton.textContent = "Submitting...";
 
     // Making a POST request with the form data
@@ -253,7 +253,6 @@ function checkChanged(checkedCheckbox) {
         if (checkbox.id == "attend-yes") {
             if (checkbox.checked) {
                 if (window.n_guests > 1) {
-                    console.log("REE")
                     showAttend('multi-attend');
                 } else {
                     showAttend('normal-attend');
@@ -522,8 +521,9 @@ function wrapTextWithSpans(element) {
 
 var map = null;
 function setupMap() {
+    zoom = window.innerWidth < 460 ? 11 : 13;
     // Initialize the map with the specified view
-    map = L.map('map').setView([-33.901792, 18.797119], 13);
+    map = L.map('map', { scrollWheelZoom: false }).setView([-33.901792, 18.797119], zoom);
 
     // Add CartoDB Positron tile layer
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
