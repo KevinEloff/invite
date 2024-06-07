@@ -456,6 +456,22 @@ function displayGuestList(guestNames, data) {
     }
 }
 
+function addAccomodation(location) {
+    const accomodationElement = document.createElement('div');
+    accomodationElement.classList.add('accomodation');
+
+    accomodationElement.innerHTML = `
+    <img src="${location.img_url}">
+    <div>
+        <h3>${location.title}</h3>
+        ${location.description}<br>
+        <a href="${location.href}" target="_blank">${location.location}</a>
+    </div>
+    `;
+
+    document.getElementById("accomodation-list").appendChild(accomodationElement);
+}
+
 function showAttend(id) {
     $(`#${id}`).show()
     $(`#${id}`).css('opacity', 0)
@@ -523,7 +539,10 @@ var map = null;
 function setupMap() {
     zoom = window.innerWidth < 460 ? 11 : 13;
     // Initialize the map with the specified view
-    map = L.map('map', { scrollWheelZoom: false }).setView([-33.901792, 18.797119], zoom);
+    map = L.map('map', { 
+        scrollWheelZoom: L.Browser.mobile,
+        dragging: !L.Browser.mobile,
+    }).setView([-33.901792, 18.797119], zoom);
 
     // Add CartoDB Positron tile layer
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -563,6 +582,10 @@ function setupMapLocations(locations) {
                 map.fitBounds(gpxLayer.getBounds());
             });
             gpxLayer.addTo(map);
+        }
+
+        if (location.listed) {
+            addAccomodation(location);
         }
     });
 }

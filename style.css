@@ -1273,17 +1273,17 @@ section h2 {
 
 @media (max-width: 500px) {
     .top {
-        min-height: 500px;
+        min-height: 650px;
         background: url('assets/top-low.jpg') center center;
     }
 
     .mid {
-        min-height: 300px;
+        min-height: 550px;
         background: url('assets/mid-low.jpg') center center;
     }
 
     .bottom {
-        min-height: 650px;
+        min-height: 750px;
         background: url('assets/bottom-low.jpg') center center;
     }
 
