@@ -556,19 +556,20 @@ function setupMapLocations(locations) {
 
     // Add markers and labels to the map
     locations.forEach(function (location) {
+        let shiftIcon = (location.colour === "blue");
         var mapIcon = new L.Icon({
             iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${location.colour}.png`,
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
+            iconSize: shiftIcon ? [17, 30] : [25, 41],
+            iconAnchor: shiftIcon ? [8, 41] : [12, 41],
             popupAnchor: [1, -34],
-            shadowSize: [41, 41]
+            shadowSize: shiftIcon ? [30, 30] : [41, 41]
         });
 
         var marker = L.marker([location.lat, location.lng], { icon: mapIcon }).addTo(map)
 
         var label = L.divIcon({
-            className: 'map-label',
+            className: shiftIcon ? 'map-label-small' : 'map-label',
             html: `<a href="${location.href}" target="_blank">${location.title}</a>`,
             iconSize: [100, 10],
             iconAnchor: [50, 55]

@@ -1250,7 +1250,13 @@ section h2 {
     font-size: 14px;
 }
 
-.map-label a {
+.map-label-small {
+    display: relative;
+    font-size: 10px;
+}
+
+.map-label a,
+.map-label-small a {
     position: absolute;
     width: 100px;
     bottom: 0px;
@@ -1259,6 +1265,7 @@ section h2 {
     /* color: #0078A8; */
     color: black;
     text-decoration: none;
+    line-height: 15px;
 }
 
 .map-label a:hover {
