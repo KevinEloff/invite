@@ -569,7 +569,7 @@ function setupMapLocations(locations) {
         var marker = L.marker([location.lat, location.lng], { icon: mapIcon }).addTo(map)
 
         var label = L.divIcon({
-            className: shiftIcon ? 'map-label-small' : 'map-label',
+            className: (shiftIcon & L.Browser.mobile) ? 'map-label-small' : 'map-label',
             html: `<a href="${location.href}" target="_blank">${location.title}</a>`,
             iconSize: [100, 10],
             iconAnchor: [50, 55]
